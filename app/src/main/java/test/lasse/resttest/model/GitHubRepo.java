@@ -7,6 +7,11 @@ package test.lasse.resttest.model;
 public class GitHubRepo {
     private String name, description, language;
 
+    public GitHubRepo(String name, String description, String language) {
+        this.name = name;
+        this.description = description;
+        this.language = language;
+    }
 
     public String getName() {
         return name;

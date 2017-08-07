@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -40,7 +41,7 @@ public class RepoListView extends AppCompatActivity {
         if(BuildConfig.DEBUG) {
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
 
-            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             okHttpClientBuilder.addInterceptor(loggingInterceptor);
         }
 
@@ -54,17 +55,24 @@ public class RepoListView extends AppCompatActivity {
 
         //Create client & call object
         GitHubClient ghClient = rf.create(GitHubClient.class);
+
+//        Call<List<GitHubRepo>> call = ghClient.reposForAuthUser(Credentials.basic("SteamedCow", "****"));
         Call<List<GitHubRepo>> call = ghClient.reposForUser(user);
 
-        //Send call
+        //Send call async
         call.enqueue(new Callback<List<GitHubRepo>>() {
             @Override
             public void onResponse(Call<List<GitHubRepo>> call, Response<List<GitHubRepo>> response) {
-                List<GitHubRepo> repos = response.body();
+                if(response.code() == 200) {
+                    List<GitHubRepo> repos = response.body();
 
-                Log.d("RETROFIT", repos.toString());
+                    if(repos != null)
+                        Log.d("RETROFIT", repos.toString());
 
-                repoListV.setAdapter(new GitHubRepoAdapter(RepoListView.this, repos));
+                    repoListV.setAdapter(new GitHubRepoAdapter(RepoListView.this, repos));
+                }
+                else
+                    Toast.makeText(RepoListView.this, "Server error: " + response.code() + " " + response.message(), Toast.LENGTH_LONG).show();
             }
 
             @Override
