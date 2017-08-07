@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/rli_iv_langIcon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:srcCompat="@mipmap/java_icon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/rli_tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:text="Name"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+
+        <TextView
+            android:id="@+id/rli_tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Description" />
+    </LinearLayout>
+
+</LinearLayout>
