@@ -30,9 +30,10 @@ public class RepoListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repo_list_view);
 
-        //Get username from intent
+        //Get username & password from intent
         Intent intent = getIntent();
         String user = intent.getStringExtra(MainActivity.EXTRA_USER);
+        String pass = intent.getStringExtra(MainActivity.EXTRA_PASS);
 
         final ListView repoListV = (ListView) findViewById(R.id.rlv_lv_Repos);
 
@@ -56,8 +57,11 @@ public class RepoListView extends AppCompatActivity {
         //Create client & call object
         GitHubClient ghClient = rf.create(GitHubClient.class);
 
-//        Call<List<GitHubRepo>> call = ghClient.reposForAuthUser(Credentials.basic("SteamedCow", "****"));
-        Call<List<GitHubRepo>> call = ghClient.reposForUser(user);
+        Call<List<GitHubRepo>> call;
+        if(pass.length() > 0)
+            call = ghClient.reposForAuthUser(Credentials.basic(user, pass));
+        else
+            call = ghClient.reposForUser(user);
 
         //Send call async
         call.enqueue(new Callback<List<GitHubRepo>>() {
