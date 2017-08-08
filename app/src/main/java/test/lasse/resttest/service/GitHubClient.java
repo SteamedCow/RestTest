@@ -3,6 +3,7 @@ package test.lasse.resttest.service;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
@@ -19,4 +20,7 @@ public interface GitHubClient {
 
     @GET("/user/repos")
     Call<List<GitHubRepo>> reposForAuthUser(@Header("Authorization") String credentials);
+
+    @POST("/user/repos")
+    Call<GitHubRepo> createRepo(@Header("Authorization") String credentials, @Body GitHubRepo repo);
 }
