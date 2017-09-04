@@ -22,6 +22,7 @@ import test.lasse.resttest.R;
 import test.lasse.resttest.model.GitHubRepo;
 import test.lasse.resttest.service.GitHubClient;
 import test.lasse.resttest.view.main.MainActivity;
+import test.lasse.resttest.view.main.MainActivityOLD;
 
 public class RepoListView extends AppCompatActivity {
 
@@ -49,6 +50,7 @@ public class RepoListView extends AppCompatActivity {
         //Build retrofit
         Retrofit.Builder rfBuilder = new Retrofit.Builder()
                 .baseUrl("https://api.github.com/")
+//                .baseUrl("http://192.168.0.22:1337")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClientBuilder.build());
 

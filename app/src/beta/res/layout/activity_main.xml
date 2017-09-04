@@ -38,30 +38,30 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/main_et_password"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/main_et_password"
-        app:layout_constraintRight_toRightOf="@+id/main_et_password"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1" />
+        <!--app:layout_constraintBottom_toTopOf="@+id/main_et_password"-->
+        <!--app:layout_constraintLeft_toLeftOf="@+id/main_et_password"-->
+        <!--app:layout_constraintRight_toRightOf="@+id/main_et_password"-->
 
-    <EditText
-        android:id="@+id/main_et_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:contentDescription="Leave blank to not authenticate"
-        android:ems="10"
-        android:hint="Password (optional)"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/main_btn_execute"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="@+id/main_btn_execute"
-        app:layout_constraintRight_toRightOf="@+id/main_btn_execute"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1" />
+    <!--<EditText-->
+        <!--android:id="@+id/main_et_password"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="5dp"-->
+        <!--android:contentDescription="Leave blank to not authenticate"-->
+        <!--android:ems="10"-->
+        <!--android:hint="Password (optional)"-->
+        <!--android:inputType="textPassword"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/main_btn_execute"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintLeft_toLeftOf="@+id/main_btn_execute"-->
+        <!--app:layout_constraintRight_toRightOf="@+id/main_btn_execute"-->
+        <!--tools:layout_constraintBottom_creator="1"-->
+        <!--tools:layout_constraintLeft_creator="1"-->
+        <!--tools:layout_constraintRight_creator="1" />-->
 
     <Button
         android:id="@+id/main_btn_execute"
